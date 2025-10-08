@@ -160,26 +160,7 @@
       © 2025 Надіюсь вам дуже сподобається 🎈
     </footer>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    (function(){
-    emailjs.init("YOUR_PUBLIC_KEY"); // встав свій Public Key
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-    from_name: 'Roman',
-    to_name: 'Friend',
-    message: 'Hello!',
-    reply_to: 'iamyoutibe@email.com'
-}, 'ALcaZM4-mP4MvjynB')
-.then((response) => {
-    console.log('SUCCESS!', response.status, response.text);
-}, (err) => {
-    console.error('FAILED...', err);
-});
     
     // Таймер
     const countdown = document.getElementById('countdown');
