@@ -146,10 +146,10 @@
 
     <div class="section form-section">
       <h2>✅ Підтвердити участь</h2>
-      <form id="rsvpForm">
-        <label>Введи своє ім’я:</label>
-        <input type="text" name="name" placeholder="Іван Золо" required>
-        <button type="submit">Відправити</button>
+      <form action="mailto:your_email@gmail.com" method="post" enctype="text/plain">
+        <label>Ім'я:</label>
+        <input type="text" name="name" required>
+        <input type="submit" value="Відправити">
       </form>
 
       <div style="text-align:center; margin-top:10px;">
@@ -184,17 +184,7 @@
       countdown.innerHTML = `${days}д ${hours}г ${minutes}хв ${seconds}с`;
     }, 1000);
 
-    document.getElementById("rsvpForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const formData = new FormData(e.target);
 
-  await fetch("https://script.google.com/macros/s/AKfycbzWKWDNC_If6ywSqFhS-PHuFqHcNZiRirGBVIdFNE8yF7Ka5rHqJnyK-nntPyU3XOs/exec", {
-    method: "POST",
-    body: formData
-  });
-    alert("✅ Ім’я додано!");
-  e.target.reset();
-  });
   </script>
 
 </body>
