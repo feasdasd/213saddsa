@@ -146,10 +146,10 @@
 
     <div class="section form-section">
       <h2>✅ Підтвердити участь</h2>
-      <form action="mailto:romaklon290@gmail.com" method="post" enctype="text/plain">
+      <form id="contact-form">
         <label>Ім'я:</label>
         <input type="text" name="name" required>
-        <input type="submit" value="Відправити">
+        <button type="submit">Відправити</button>
       </form>
 
       <div style="text-align:center; margin-top:10px;">
@@ -160,8 +160,27 @@
       © 2025 Надіюсь вам дуже сподобається 🎈
     </footer>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
+    (function(){
+    emailjs.init("YOUR_PUBLIC_KEY"); // встав свій Public Key
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+    from_name: 'Roman',
+    to_name: 'Friend',
+    message: 'Hello!',
+    reply_to: 'iamyoutibe@email.com'
+}, 'ALcaZM4-mP4MvjynB')
+.then((response) => {
+    console.log('SUCCESS!', response.status, response.text);
+}, (err) => {
+    console.error('FAILED...', err);
+});
+    
     // Таймер
     const countdown = document.getElementById('countdown');
     const eventDate = new Date('2025-11-15T18:00:00').getTime();
