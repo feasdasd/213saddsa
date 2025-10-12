@@ -4,6 +4,7 @@ body {
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      overscroll-behavior: none;
       color: #fff;
       margin: 0;
       padding: 0;
