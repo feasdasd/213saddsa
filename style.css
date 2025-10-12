@@ -1,0 +1,129 @@
+body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("https://i.postimg.cc/gjkhrb4z/wp4549297-project-x-wallpapers.jpg");                      /* твоє фото */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+.marquee {
+    top: 0;
+    width: 100%;
+    background: red;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.marquee span {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .event-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .event-header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+
+    .event-header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .timer {
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .section {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 16px;
+        padding: 20px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        font-size: 18px;
+        margin: 40px auto;
+    }
+
+    .form-section label {
+      display: block;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: none;
+      background: #222;
+      color: white;
+    }
+
+    button {
+      background: white;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 25px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background: #ccc;
+    }
+
+    .telegram-btn {
+      display: inline-block;
+      background: #0088cc;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }

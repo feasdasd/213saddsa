@@ -3,116 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="script.js"></script>
   <title>15/11/25</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("https://i.postimg.cc/hjfqWFBd/1123.jpg");                      /* твоє фото */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1, h2 {
-      text-align: center;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .event-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .event-header h1 {
-      font-size: 2.2rem;
-      margin: 0;
-    }
-
-    .event-header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .timer {
-      font-size: 1.3rem;
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .section {
-      margin-top: 30px;
-      background: #1b1b1b;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
-    }
-
-    .form-section label {
-      display: block;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-
-    input[type="text"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 10px;
-      border: none;
-      background: #222;
-      color: white;
-    }
-
-    button {
-      background: white;
-      color: black;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 25px;
-      margin-top: 15px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    button:hover {
-      background: #ccc;
-    }
-
-    .telegram-btn {
-      display: inline-block;
-      background: #0088cc;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-  </style>
 </head>
+
 <body>
+  <div class="marquee">
+    <span>⚠ Розголос заборонений ⚠</span>
+  </div>
 
   <div class="container">
     <div class="event-header">
       <h1>🎉 15/11/25 🎂</h1>
-      <p>РОЗГОСОЛ ПРО ВЕЧІРКУ ЗАБОРОНЕНИЙ</p>
     </div>
 
     <div class="timer">
@@ -120,20 +26,9 @@
     </div>
 
     <div class="section">
-      <h2>⭐ Головна інформація</h2>
+      <h2>⭐ Головна подія осінні</h2>
       <p>Запрошую тебе на святкування мого дня народження, яке відбудеться 15/11/25 о (час скажемо пізніше). Обіцяю незабутню вечірку — багато людей, музики, гарного настрою й справжнього відпочинку. Буде весело, тепло й по-дружньому — так, як треба 💥</p>
     </div>
-
-    <div class="section">
-  <h2>📸 Минулі дні народження</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-    <!-- Твої фото додавай сюди -->
-    <img src="https://i.postimg.cc/YShjqsNG/ungh.png" alt="Минулого року" style="width: 200px; border-radius: 10px;">
-    <img src="https://i.postimg.cc/4NL8hKkd/photo-2025-10-08-20-54-36.jpg" alt="Веселощі" style="width: 200px; border-radius: 10px;">
-    <img src="https://i.postimg.cc/kG8ntrDM/Untitled-1.png" alt="Свято" style="width: 200px; border-radius: 10px;">
-  </div>
-</div>
-
 
     <div class="section">
   <h2>📍 Де?</h2>
@@ -146,11 +41,82 @@
 
     <div class="section form-section">
       <h2>✅ Підтвердити участь</h2>
-      <form id="contact-form">
+      <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+        <input type="hidden" name="access_key" value="f73f4732-a763-4363-9bcd-c36d7c5e4065">
         <label>Ім'я:</label>
-        <input type="text" name="name" required>
-        <button type="submit">Відправити</button>
-      </form>
+        <input type="text" name="name" required placeholder="ivan zolo">
+        <label>Інста:</label>
+        <input type="text" name="name" required placeholder="bebebe">
+        <!-- 1. Вибір статі -->
+  <label for="gender">Твоя стать:</label>
+  <select id="gender" name="gender" required>
+    <option value="">-- вибери стать --</option>
+    <option value="male">Чоловік</option>
+    <option value="female">Жінка</option>
+    <option value="other">Інше</option>
+  </select>
+
+
+  <!-- 2. З ким будеш -->
+  <div id="partner-div" style="display:none;">
+    <label for="partner">Будеш сам чи з кимось?</label>
+    <select id="partner" name="partner" required>
+      <option value="">-- вибери варіант --</option>
+      <option value="alone">Сам</option>
+      <option value="with">З кимось</option>
+    </select>
+  </div>
+
+
+  <!-- 3. Будеш пити -->
+  <div id="drink-div" style="display:none;">
+    <label for="drink">Будеш пити?</label>
+    <select id="drink" name="drink" required>
+      <option value="">-- вибери варіант --</option>
+      <option value="yes">Так</option>
+      <option value="no">Ні</option>
+    </select>
+  </div>
+
+
+  <!-- 4. Що будеш пити -->
+  <div id="what-drink" style="display:none;">
+    <label for="drink-type">Що будеш пити?</label>
+    <select id="drink-type" name="drink-type" required>
+      <option value="">-- вибери напій --</option>
+      <option value="vodka">Водка</option>
+      <option value="whiskey">Віскі</option>
+      <option value="wine">Вино</option>
+      <option value="beer">Пиво</option>
+    </select>
+  </div>
+
+
+  <!-- 5. Чи буде пити партнер -->
+  <div id="partner-drink-yesno-div" style="display:none;">
+    <label for="partner-drink-yesno">Чи буде пити партнер?</label>
+    <select id="partner-drink-yesno" name="partner-drink-yesno" required>
+      <option value="">-- вибери варіант --</option>
+      <option value="yes">Так</option>
+      <option value="no">Ні</option>
+    </select>
+  </div>
+
+
+  <!-- 6. Що буде пити партнер -->
+  <div id="partner-drink-div" style="display:none;">
+    <label for="partner-drink">Що буде пити партнер?</label>
+    <select id="partner-drink" name="partner-drink" required>
+      <option value="">-- вибери напій --</option>
+      <option value="vodka">Водка</option>
+      <option value="whiskey">Віскі</option>
+      <option value="wine">Вино</option>
+      <option value="beer">Пиво</option>
+    </select>
+  </div>
+
+
+  <button type="submit" style="margin-top:10px;">Відправити</button>
 
       <div style="text-align:center; margin-top:10px;">
       </div>
@@ -160,8 +126,8 @@
       © 2025 Надіюсь вам дуже сподобається 🎈
     </footer>
   </div>
-  <script>
-    
+</body>
+<script>
     // Таймер
     const countdown = document.getElementById('countdown');
     const eventDate = new Date('2025-11-15T18:00:00').getTime();
@@ -184,9 +150,83 @@
       countdown.innerHTML = `${days}д ${hours}г ${minutes}хв ${seconds}с`;
     }, 1000);
 
+    const genderSelect = document.getElementById('gender');
+  const partnerDiv = document.getElementById('partner-div');
+  const partnerSelect = document.getElementById('partner');
+  const drinkDiv = document.getElementById('drink-div');
+  const drinkSelect = document.getElementById('drink');
+  const whatDrinkDiv = document.getElementById('what-drink');
+  const drinkTypeSelect = document.getElementById('drink-type');
+  const partnerDrinkYesNoDiv = document.getElementById('partner-drink-yesno-div');
+  const partnerDrinkYesNoSelect = document.getElementById('partner-drink-yesno');
+  const partnerDrinkDiv = document.getElementById('partner-drink-div');
+  const partnerDrinkSelect = document.getElementById('partner-drink');
 
+  // Показати "з ким" після вибору статі
+  genderSelect.addEventListener('change', () => {
+    if (genderSelect.value) {
+      partnerDiv.style.display = 'block';
+    } else {
+      partnerDiv.style.display = 'none';
+      partnerSelect.value = '';
+      drinkDiv.style.display = 'none';
+      drinkSelect.value = '';
+      whatDrinkDiv.style.display = 'none';
+      drinkTypeSelect.value = '';
+      partnerDrinkYesNoDiv.style.display = 'none';
+      partnerDrinkYesNoSelect.value = '';
+      partnerDrinkDiv.style.display = 'none';
+      partnerDrinkSelect.value = '';
+    }
+  });
+
+  // Показати "Будеш пити?" після вибору партнера
+  partnerSelect.addEventListener('change', () => {
+    if (partnerSelect.value) {
+      drinkDiv.style.display = 'block';
+    } else {
+      drinkDiv.style.display = 'none';
+      drinkSelect.value = '';
+      whatDrinkDiv.style.display = 'none';
+      drinkTypeSelect.value = '';
+      partnerDrinkYesNoDiv.style.display = 'none';
+      partnerDrinkYesNoSelect.value = '';
+      partnerDrinkDiv.style.display = 'none';
+      partnerDrinkSelect.value = '';
+    }
+  });
+
+  // Показати "Що будеш пити?" якщо "Так"
+  drinkSelect.addEventListener('change', () => {
+    if (drinkSelect.value === 'yes') {
+      whatDrinkDiv.style.display = 'block';
+    } else {
+      whatDrinkDiv.style.display = 'none';
+      drinkTypeSelect.value = '';
+    }
+  });
+
+  // Показати "Чи буде пити партнер?" після вибору твоєї дії
+  drinkTypeSelect.addEventListener('change', () => {
+    if (partnerSelect.value === 'with') {
+      partnerDrinkYesNoDiv.style.display = 'block';
+    } else {
+      partnerDrinkYesNoDiv.style.display = 'none';
+      partnerDrinkYesNoSelect.value = '';
+      partnerDrinkDiv.style.display = 'none';
+      partnerDrinkSelect.value = '';
+    }
+  });
+
+  // Показати "Що буде пити партнер?" якщо він/вона пити буде
+  partnerDrinkYesNoSelect.addEventListener('change', () => {
+    if (partnerDrinkYesNoSelect.value === 'yes') {
+      partnerDrinkDiv.style.display = 'block';
+    } else {
+      partnerDrinkDiv.style.display = 'none';
+      partnerDrinkSelect.value = '';
+    }
+  });
   </script>
-
-</body>
 </html>
 
