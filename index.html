@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <script src="script.js"></script>
   <title>15/11/25</title>
@@ -13,7 +16,7 @@
 
 <body>
   <div class="marquee">
-    <span>⚠ Розголос заборонений ⚠</span>
+    <span>⚠ Розголос строго заборонений ⚠</span>
   </div>
 
   <div class="container">
@@ -31,6 +34,10 @@
     </div>
 
     <div class="section">
+      <p>Всіх чекаю з вашими другими половинками🫂Щоб вам було максимально комфортно на моєму день народженні пройдіть опитування знизу(відповідати серйозно)⬇️</p>
+    </div>
+
+    <div class="section">
   <h2>📍 Де?</h2>
   <p style="text-align: center;">Скажем за тиждень до вечірки</p>
   <!-- <iframe 
@@ -40,37 +47,24 @@
 </div>
 
     <div class="section form-section">
-      <h2>✅ Підтвердити участь</h2>
+      <h2>✅ Опитування</h2>
       <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
         <input type="hidden" name="access_key" value="81fb87f2-e649-4247-bb7c-d44c0035e682">
         <label>Ім'я:</label>
         <input type="text" name="name" required placeholder="ivan zolo">
         <label>Інста:</label>
-        <input type="text" name="name" required placeholder="bebebe">
-        <!-- 1. Вибір статі -->
-  <label for="gender">Твоя стать:</label>
-  <select id="gender" name="gender" required>
-    <option value="">-- вибери стать --</option>
-    <option value="male">Чоловік</option>
-    <option value="female">Жінка</option>
-    <option value="other">Інше</option>
+        <input type="text" name="insta" required placeholder="bebebe">
+        <!-- 1. Чи сам чи з партнером -->
+  <label for="partner">Ти будеш сам чи з партнером?:</label>
+  <select id="partner" name="partner" required>
+    <option value="">-- вибери варіант --</option>
+    <option value="solo">Сам</option>
+    <option value="with-partner">З партнером/кою</option>
   </select>
 
-
-  <!-- 2. З ким будеш -->
-  <div id="partner-div" style="display:none;">
-    <label for="partner">Будеш сам чи з кимось?</label>
-    <select id="partner" name="partner" required>
-      <option value="">-- вибери варіант --</option>
-      <option value="alone">Сам</option>
-      <option value="with">З кимось</option>
-    </select>
-  </div>
-
-
-  <!-- 3. Будеш пити -->
-  <div id="drink-div" style="display:none;">
-    <label for="drink">Будеш пити?</label>
+  <!-- 2. Чи будеш пити -->
+  <div id="drink-section" style="display:none; margin-top:10px;">
+    <label for="drink">Будеш пити?(алкоголь)</label>
     <select id="drink" name="drink" required>
       <option value="">-- вибери варіант --</option>
       <option value="yes">Так</option>
@@ -78,40 +72,35 @@
     </select>
   </div>
 
-
-  <!-- 4. Що будеш пити -->
-  <div id="what-drink" style="display:none;">
-    <label for="drink-type">Що будеш пити?</label>
+  <!-- 3. Що будеш пити -->
+  <div id="what-drink" style="display:none; margin-top:10px;">
+    <label for="drink-type">Що будеш пити?(вибирає тільки дівчина)</label>
     <select id="drink-type" name="drink-type" required>
       <option value="">-- вибери напій --</option>
       <option value="vodka">Водка</option>
       <option value="whiskey">Віскі</option>
       <option value="wine">Вино</option>
       <option value="beer">Пиво</option>
+      <option value="any">Без різниці</option>
+      <option value="custom">Свій варіант</option>
     </select>
+
+    <input
+      type="text"
+      id="custom-drink"
+      name="custom-drink"
+      placeholder="Введи свій напій"
+      style="display:none; margin-top:10px;"
+    />
   </div>
 
-
-  <!-- 5. Чи буде пити партнер -->
-  <div id="partner-drink-yesno-div" style="display:none;">
-    <label for="partner-drink-yesno">Чи буде пити партнер?</label>
-    <select id="partner-drink-yesno" name="partner-drink-yesno" required>
+  <!-- 4. Чи буде пити партнер -->
+  <div id="partner-drink-section" style="display:none; margin-top:10px;">
+    <label for="partner-drink">Чи буде партнер пити?</label>
+    <select id="partner-drink" name="partner-drink" required>
       <option value="">-- вибери варіант --</option>
       <option value="yes">Так</option>
       <option value="no">Ні</option>
-    </select>
-  </div>
-
-
-  <!-- 6. Що буде пити партнер -->
-  <div id="partner-drink-div" style="display:none;">
-    <label for="partner-drink">Що буде пити партнер?</label>
-    <select id="partner-drink" name="partner-drink" required>
-      <option value="">-- вибери напій --</option>
-      <option value="vodka">Водка</option>
-      <option value="whiskey">Віскі</option>
-      <option value="wine">Вино</option>
-      <option value="beer">Пиво</option>
     </select>
   </div>
 
@@ -150,83 +139,53 @@
       countdown.innerHTML = `${days}д ${hours}г ${minutes}хв ${seconds}с`;
     }, 1000);
 
-    const genderSelect = document.getElementById('gender');
-  const partnerDiv = document.getElementById('partner-div');
-  const partnerSelect = document.getElementById('partner');
-  const drinkDiv = document.getElementById('drink-div');
-  const drinkSelect = document.getElementById('drink');
-  const whatDrinkDiv = document.getElementById('what-drink');
-  const drinkTypeSelect = document.getElementById('drink-type');
-  const partnerDrinkYesNoDiv = document.getElementById('partner-drink-yesno-div');
-  const partnerDrinkYesNoSelect = document.getElementById('partner-drink-yesno');
-  const partnerDrinkDiv = document.getElementById('partner-drink-div');
-  const partnerDrinkSelect = document.getElementById('partner-drink');
+    const partnerSelect = document.getElementById('partner');
+    const drinkSection = document.getElementById('drink-section');
+    const drinkSelect = document.getElementById('drink');
+    const whatDrinkDiv = document.getElementById('what-drink');
+    const drinkTypeSelect = document.getElementById('drink-type');
+    const customDrinkInput = document.getElementById('custom-drink');
+    const partnerDrinkSection = document.getElementById('partner-drink-section');
 
-  // Показати "з ким" після вибору статі
-  genderSelect.addEventListener('change', () => {
-    if (genderSelect.value) {
-      partnerDiv.style.display = 'block';
-    } else {
-      partnerDiv.style.display = 'none';
-      partnerSelect.value = '';
-      drinkDiv.style.display = 'none';
-      drinkSelect.value = '';
-      whatDrinkDiv.style.display = 'none';
-      drinkTypeSelect.value = '';
-      partnerDrinkYesNoDiv.style.display = 'none';
-      partnerDrinkYesNoSelect.value = '';
-      partnerDrinkDiv.style.display = 'none';
-      partnerDrinkSelect.value = '';
-    }
-  });
+    // 1. Після вибору "сам/з партнером" показуємо питання про пиття
+    partnerSelect.addEventListener('change', function() {
+      if (this.value !== '') {
+        drinkSection.style.display = 'block';
+      } else {
+        drinkSection.style.display = 'none';
+        whatDrinkDiv.style.display = 'none';
+        partnerDrinkSection.style.display = 'none';
+      }
+    });
 
-  // Показати "Будеш пити?" після вибору партнера
-  partnerSelect.addEventListener('change', () => {
-    if (partnerSelect.value) {
-      drinkDiv.style.display = 'block';
-    } else {
-      drinkDiv.style.display = 'none';
-      drinkSelect.value = '';
-      whatDrinkDiv.style.display = 'none';
-      drinkTypeSelect.value = '';
-      partnerDrinkYesNoDiv.style.display = 'none';
-      partnerDrinkYesNoSelect.value = '';
-      partnerDrinkDiv.style.display = 'none';
-      partnerDrinkSelect.value = '';
-    }
-  });
+    // 2. Якщо буде пити — показуємо варіанти напоїв
+    drinkSelect.addEventListener('change', function() {
+      if (this.value === 'yes') {
+        whatDrinkDiv.style.display = 'block';
+        partnerDrinkSection.style.display = 'none';
+      } else if (this.value === 'no') {
+        whatDrinkDiv.style.display = 'none';
+        partnerDrinkSection.style.display =
+          partnerSelect.value === 'with-partner' ? 'block' : 'none';
+      } else {
+        whatDrinkDiv.style.display = 'none';
+        partnerDrinkSection.style.display = 'none';
+      }
+    });
 
-  // Показати "Що будеш пити?" якщо "Так"
-  drinkSelect.addEventListener('change', () => {
-    if (drinkSelect.value === 'yes') {
-      whatDrinkDiv.style.display = 'block';
-    } else {
-      whatDrinkDiv.style.display = 'none';
-      drinkTypeSelect.value = '';
-    }
-  });
+    // 3. Якщо обрали “Свій варіант” — показуємо поле вводу
+    drinkTypeSelect.addEventListener('change', function() {
+      if (this.value === 'custom') {
+        customDrinkInput.style.display = 'block';
+      } else {
+        customDrinkInput.style.display = 'none';
+      }
 
-  // Показати "Чи буде пити партнер?" після вибору твоєї дії
-  drinkTypeSelect.addEventListener('change', () => {
-    if (partnerSelect.value === 'with') {
-      partnerDrinkYesNoDiv.style.display = 'block';
-    } else {
-      partnerDrinkYesNoDiv.style.display = 'none';
-      partnerDrinkYesNoSelect.value = '';
-      partnerDrinkDiv.style.display = 'none';
-      partnerDrinkSelect.value = '';
-    }
-  });
-
-  // Показати "Що буде пити партнер?" якщо він/вона пити буде
-  partnerDrinkYesNoSelect.addEventListener('change', () => {
-    if (partnerDrinkYesNoSelect.value === 'yes') {
-      partnerDrinkDiv.style.display = 'block';
-    } else {
-      partnerDrinkDiv.style.display = 'none';
-      partnerDrinkSelect.value = '';
-    }
-  });
+      // Після вибору напою — показуємо питання про партнера (якщо він є)
+      if (partnerSelect.value === 'with-partner') {
+        partnerDrinkSection.style.display = 'block';
+      }
+    });
   </script>
 </html>
 
