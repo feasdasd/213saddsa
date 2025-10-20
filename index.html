@@ -137,52 +137,61 @@
       countdown.innerHTML = `${days}д ${hours}г ${minutes}хв ${seconds}с`;
     }, 1000);
 
-    const partnerSelect = document.getElementById('partner');
-    const drinkSection = document.getElementById('drink-section');
-    const drinkSelect = document.getElementById('drink');
-    const whatDrinkDiv = document.getElementById('what-drink');
-    const drinkTypeSelect = document.getElementById('drink-type');
-    const customDrinkInput = document.getElementById('custom-drink');
-    const partnerDrinkSection = document.getElementById('partner-drink-section');
+const partnerSelect = document.getElementById('partner');
+const drinkSection = document.getElementById('drink-section');
+const drinkSelect = document.getElementById('drink');
+const whatDrinkDiv = document.getElementById('what-drink');
+const drinkTypeSelect = document.getElementById('drink-type');
+const customDrinkInput = document.getElementById('custom-drink');
+const partnerDrinkSection = document.getElementById('partner-drink-section');
+const partnerDrinkSelect = document.getElementById('partner-drink');
 
-    // 1. Після вибору "сам/з партнером" показуємо питання про пиття
-    partnerSelect.addEventListener('change', function() {
-      if (this.value !== '') {
+// 1. Вибір "сам/з партнером"
+partnerSelect.addEventListener('change', function() {
+    if (this.value !== '') {
         drinkSection.style.display = 'block';
-      } else {
+    } else {
         drinkSection.style.display = 'none';
         whatDrinkDiv.style.display = 'none';
         partnerDrinkSection.style.display = 'none';
-      }
-    });
+        partnerDrinkSelect.required = false;
+    }
+});
 
-    // 2. Якщо буде пити — показуємо варіанти напоїв
-    drinkSelect.addEventListener('change', function() {
-      if (this.value === 'yes') {
+// 2. Вибір "будеш пити"
+drinkSelect.addEventListener('change', function() {
+    if (this.value === 'yes') {
         whatDrinkDiv.style.display = 'block';
         partnerDrinkSection.style.display = 'none';
-      } else if (this.value === 'no') {
+        partnerDrinkSelect.required = false;
+    } else if (this.value === 'no') {
         whatDrinkDiv.style.display = 'none';
-        partnerDrinkSection.style.display =
-          partnerSelect.value === 'with-partner' ? 'block' : 'none';
-      } else {
+        if (partnerSelect.value === 'with-partner') {
+            partnerDrinkSection.style.display = 'block';
+            partnerDrinkSelect.required = true;
+        } else {
+            partnerDrinkSection.style.display = 'none';
+            partnerDrinkSelect.required = false;
+        }
+    } else {
         whatDrinkDiv.style.display = 'none';
         partnerDrinkSection.style.display = 'none';
-      }
-    });
+        partnerDrinkSelect.required = false;
+    }
+});
 
-    // 3. Якщо обрали “Свій варіант” — показуємо поле вводу
-    drinkTypeSelect.addEventListener('change', function() {
-      if (this.value === 'custom') {
-        customDrinkInput.style.display = 'block';
-      } else {
-        customDrinkInput.style.display = 'none';
-      }
+// 3. Вибір "Свій варіант" напою
+drinkTypeSelect.addEventListener('change', function() {
+    customDrinkInput.style.display = this.value === 'custom' ? 'block' : 'none';
 
-      // Після вибору напою — показуємо питання про партнера (якщо він є)
-      if (partnerSelect.value === 'with-partner') {
+    // Після вибору напою — питання про партнера
+    if (partnerSelect.value === 'with-partner' && drinkSelect.value !== 'yes') {
         partnerDrinkSection.style.display = 'block';
-      }
+        partnerDrinkSelect.required = true;
+    } else {
+        partnerDrinkSection.style.display = 'none';
+        partnerDrinkSelect.required = false;
+    }
     });
   </script>
 </html>
